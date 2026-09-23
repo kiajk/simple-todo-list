@@ -45,3 +45,7 @@ h1 {
 * {
     box-sizing: border-box;
 }
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
