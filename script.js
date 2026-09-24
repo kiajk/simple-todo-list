@@ -20,6 +20,16 @@ function renderTodos(){
             return todo.completed;
         }
      });
+      const todocount = document.querySelector("#todo-count")
+        const remainingTodos = todos.filter((todo) => !todo.completed).length;
+        todocount.textContent = `${remainingTodos} items left`;
+        
+        const emptyMessage = document.querySelector("#empty-message")
+        if (remainingTodos.length === 0) {
+            emptyMessage.style.display = "block";
+        } else {
+            emptyMessage.style.display = "none";
+        }
      filteredTodos.forEach((todo) => {
         const li = document.createElement("li");
         li.textContent = todo.title;
@@ -65,7 +75,7 @@ addButton.addEventListener("click" , () => {
         completed:false
     };
     todos.push(todo);
-    renderTodos();
+    renderTodos();  
     console.log(todos);
     console.log(todoText);
 });
