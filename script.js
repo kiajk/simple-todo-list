@@ -1,7 +1,7 @@
 const todoInput = document.querySelector("#new-todo");
 const addButton = document.querySelector("#add-todo");
-const todoList = document.querySelector("#todo-list")
-
+const todoList = document.querySelector("#todo-list");
+const todoForm = document.querySelector("#todo-form");
 const todos = [];
 let currentFilter = "all";
 const filterAll = document.querySelector("#filter-all")
@@ -63,7 +63,8 @@ filterCompleted.addEventListener("click" , () => {
     currentFilter = "completed"
     renderTodos();
 })
-addButton.addEventListener("click" , () => {
+todoForm.addEventListener("submit" , (event) => {
+    event.preventDefault();
     console.log("clicked");
     const todoText = todoInput.value;
     if (todoText.trim() === ""){
